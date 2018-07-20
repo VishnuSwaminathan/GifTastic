@@ -11,17 +11,17 @@ var games = [
   'GTA'
 ];
 function renderButtons() {
-  $('#buttons-place').empty();
+  $('#buttons-place').html('');
+  console.log('About to Render');
+
   for (var i = 0; i < games.length; i++) {
-    var a = $('<button>');
-    a.attr('data-videogame', games[i]);
-    a.text(games[i]);
-    $('#buttons-view').append(a);
-    console.log('Button for:' + games[i] + ' rendered');
+    var gameButton = $('<button>');
+    gameButton.attr('data-videogame', games[i]);
+    gameButton.text(games[i]);
+    $('#buttons-view').append(gameButton);
+    console.log('Button for: ' + games[i] + ' rendered');
   }
 }
-
-renderButtons();
 
 $('button').on('click', function() {
   $('#gifs-appear-here').html('');
@@ -69,27 +69,4 @@ $('button').on('click', function() {
   });
 });
 
-// $('#gifs-appear-here').on('click', function() {
-//   console.log('clicked gif');
-//   var queryURL =
-//     'https://api.giphy.com/v1/gifs/search?q=' +
-//     videogame +
-//     '&api_key=k57hF1C8XQZEgLOoyBIn2TgzKU72Gdzr&limit=10';
-//   $.ajax({
-//     url: queryURL,
-//     method: 'GET'
-//   }).then(function(response) {
-//     var results = response.data;
-
-//     var still = results.images.fixed_height_still.url;
-//     var animate = results.images.fixed_heigh.url;
-//     var state = $(this).attr('src');
-//     console.log('State of GIF: ' + state);
-
-//     if (state == still) {
-//       this.attr('src', results.images.fixed_height.url);
-//     } else if (state == animate) {
-//       this.attr('src', results.images.fixed_height_still.url);
-//     }
-//   });
-// });
+renderButtons();
