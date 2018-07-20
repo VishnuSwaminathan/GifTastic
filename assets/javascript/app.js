@@ -1,3 +1,28 @@
+var games = [
+  'Witcher',
+  'Mario',
+  'Legend of Zelda',
+  'BioShock',
+  'Skyrim',
+  'Battlefield',
+  'Mortal Kombat',
+  'PUBG',
+  'Fortnite',
+  'GTA'
+];
+function renderButtons() {
+  $('#buttons-place').empty();
+  for (var i = 0; i < games.length; i++) {
+    var a = $('<button>');
+    a.attr('data-videogame', games[i]);
+    a.text(games[i]);
+    $('#buttons-view').append(a);
+    console.log('Button for:' + games[i] + ' rendered');
+  }
+}
+
+renderButtons();
+
 $('button').on('click', function() {
   $('#gifs-appear-here').html('');
 
